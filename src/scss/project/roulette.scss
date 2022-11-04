@@ -1,0 +1,92 @@
+@charset 'utf-8';
+
+.rouletteContainer {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.roulette {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    content: '';
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 50%));
+    border: solid transparent;
+    border-width: 10px 40px;
+    border-right-color: #0081b8;
+    transform: translateY(-50%);
+  }
+
+  &__image {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background: conic-gradient(
+      #ec9376 0deg 120deg,
+      #ecbe75 120deg 240deg,
+      #e3e986 240deg 360deg
+    );
+    border-radius: 50%;
+  }
+
+  &__labelContainer {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 20px);
+    transform: translate(-50%, -50%);
+  }
+
+  &__label {
+    position: absolute;
+    display: block;
+    width: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    &:first-of-type {
+      top: -100px;
+      left: 173px;
+      transform: rotate(-30deg);
+    }
+
+    &:nth-of-type(2) {
+      top: 200px;
+      left: -1px;
+      transform: rotate(90deg);
+    }
+
+    &:last-of-type {
+      top: -100px;
+      left: -173px;
+      transform: rotate(-150deg);
+    }
+  }
+}
+
+.inputArea {
+  &__inputBox {
+    padding: 5px;
+    text-align: start;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  &__buttonArea {
+    margin-top: 40px;
+  }
+
+  &__button {
+    padding: 4px;
+    margin: 0 4px;
+    border: 1px solid #333;
+    border-radius: 4px;
+  }
+}
