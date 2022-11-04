@@ -113,8 +113,8 @@ export const setRoulette = () => {
       y = -y;
     }
 
-    labelContainer.children[num].style.left = x + 'px';
-    labelContainer.children[num].style.top = y + 'px';
+    labelContainer.children[num].style.left = x - 20 + 'px';
+    labelContainer.children[num].style.top = y - 10 + 'px';
     labelContainer.children[num].style.transform =
       'rotate(' + rotateAngle + 'deg)';
   };

@@ -2,5 +2,7 @@
 import '../scss/common.scss';
 
 import { setRoulette } from './module/setRoulette';
+import { moveRoulette } from './module/moveRoulette.js';
 
 setRoulette();
+moveRoulette();

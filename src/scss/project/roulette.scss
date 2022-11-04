@@ -12,18 +12,6 @@
 .roulette {
   position: relative;
 
-  &::before {
-    position: absolute;
-    top: 50%;
-    right: -5px;
-    content: '';
-    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 50%));
-    border: solid transparent;
-    border-width: 10px 40px;
-    border-right-color: #0081b8;
-    transform: translateY(-50%);
-  }
-
   &__image {
     width: 500px;
     height: 500px;
@@ -38,8 +26,8 @@
 
   &__labelContainer {
     position: absolute;
-    top: calc(50% - 10px);
-    left: calc(50% - 20px);
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
   }
 
@@ -52,22 +40,33 @@
     white-space: nowrap;
 
     &:first-of-type {
-      top: -100px;
-      left: 173px;
+      top: -110px;
+      left: 153px;
       transform: rotate(-30deg);
     }
 
     &:nth-of-type(2) {
-      top: 200px;
-      left: -1px;
+      top: 190px;
+      left: -21px;
       transform: rotate(90deg);
     }
 
     &:last-of-type {
-      top: -100px;
-      left: -173px;
+      top: -110px;
+      left: -193px;
       transform: rotate(-150deg);
     }
+  }
+
+  &__pin {
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 50%));
+    border: solid transparent;
+    border-width: 10px 40px;
+    border-right-color: #0081b8;
+    transform: translateY(-50%);
   }
 }
 
