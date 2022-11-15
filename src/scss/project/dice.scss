@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+.diceContainer {
+  padding-top: 100px;
+}
+
+.dice {
+  display: flex;
+  column-gap: 40px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__box {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    padding-top: 8px;
+    font-size: 72px;
+    border: 1px solid #999;
+    border-radius: 5px;
+  }
+
+  &__button {
+    height: 30px;
+    padding: 4px;
+    border: 1px solid #333;
+    border-radius: 4px;
+  }
+}
