@@ -1,0 +1,18 @@
+section.talkListContainer
+  .talkList
+    ol.talkList__list.js-talkList
+      li.talkList__listItem
+        .talkList__listItemContents
+          p.talkList__text 改めて自己紹介をお願いします。
+          button.talkList__button.js-removeButton(type=button) 削除
+      li.talkList__listItem
+        .talkList__listItemContents
+          p.talkList__text 今年1年振り返ってみてどのような年でしたか？
+          button.talkList__button.js-removeButton(type=button) 削除
+      li.talkList__listItem
+        .talkList__listItemContents
+          p.talkList__text 来年の抱負を教えてください。
+          button.talkList__button.js-removeButton(type=button) 削除
+    .talkList__inputArea
+      input.talkList__textInput.js-themeInputBox(type=text)
+      button.talkList__button.talkList__button--add.js-addButton(type=button) 追加
