@@ -160,6 +160,14 @@ export const setRoulette = () => {
     return 'conic-gradient(' + backgroundText + ')'; // backgroundに設定する文字列を返す
   };
 
+  // ページが読み込まれたら
+  window.addEventListener('load', function () {
+    const inputItemNum = setInputItem().length;
+    for (let i = 0; i < inputItemNum; i++) {
+      setLabel(inputItemNum, i, setInputItem()[i]); // ラベルアイテムの更新
+    }
+  });
+
   // テキストエリアが更新されたら
   inputBox.addEventListener('keyup', function (e) {
     const inputItemNum = setInputItem().length;
