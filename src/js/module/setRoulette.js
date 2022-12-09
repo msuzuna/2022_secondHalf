@@ -130,7 +130,7 @@ export const setRoulette = () => {
   };
 
   // 色を設定する文字列を返す関数
-  const setCssText = function (num, angle) {
+  const createCssText = function (num, angle) {
     let backgroundText = '';
     const lastNum = num - 1;
     const colorArray = setColorArray(num);
@@ -169,7 +169,7 @@ export const setRoulette = () => {
       // textAreaの配列個数分繰り返す
       for (let i = 0; i < inputItemNum; i++) {
         const angle = calcAngle(inputItemNum); // 角度の計算
-        const cssText = setCssText(inputItemNum, angle); // 色の文字列更新
+        const cssText = createCssText(inputItemNum, angle); // 色の文字列更新
         circle.style.background = cssText; // 背景色の更新
         setLabel(inputItemNum, i, setInputItem()[i]); // ラベルアイテムの更新
         setLabelPosition(i, angle);
