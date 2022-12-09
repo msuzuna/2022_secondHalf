@@ -165,7 +165,7 @@ export const setRoulette = () => {
     const inputItemNum = setInputItem().length;
 
     // EnterもしくはDeleteが押されたら ※deleteが効かない
-    if (e.key === 'Enter' || e.key === 'Delete') {
+    if (e.key === 'Enter' || e.key === 'Delete' || e.key === 'Backspace') {
       // textAreaの配列個数分繰り返す
       for (let i = 0; i < inputItemNum; i++) {
         const angle = calcAngle(inputItemNum); // 角度の計算
