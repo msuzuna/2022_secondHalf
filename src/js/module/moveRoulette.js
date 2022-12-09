@@ -1,6 +1,6 @@
 export const moveRoulette = function () {
   // DOMの取得
-  const circle = document.querySelector('.roulette__image');
+  const circle = document.querySelector('.js-rouletteImage');
   const labelContainer = document.querySelector('.js-rouletteLabelContainer'); //labelの親要素の取得
   const startButton = document.querySelector('.js-startButton');
 
