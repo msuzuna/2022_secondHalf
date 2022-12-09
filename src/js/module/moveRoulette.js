@@ -31,16 +31,19 @@ export const moveRoulette = function () {
       fill: 'forwards',
     },
 
-    startAnime: function (obj) {
-      obj.animate(this.keyframes, this.startOpts);
+    startAnime: function (circle, label) {
+      circle.animate(this.keyframes, this.startOpts);
+      label.animate(this.keyframes, this.startOpts);
     },
 
-    rotateAnime: function (obj) {
-      obj.animate(this.keyframes, this.rotateOpts);
+    rotateAnime: function (circle, label) {
+      circle.animate(this.keyframes, this.rotateOpts);
+      label.animate(this.keyframes, this.rotateOpts);
     },
 
-    stopAnime: function (obj) {
-      obj.animate(this.keyframes, this.stopOpts);
+    stopAnime: function (circle, label) {
+      circle.animate(this.keyframes, this.stopOpts);
+      label.animate(this.keyframes, this.stopOpts);
     },
   };
 
@@ -74,10 +77,8 @@ export const moveRoulette = function () {
     animation.keyframes[0].transform = 'rotate(' + currentAngle + 'deg)';
     animation.keyframes[1].transform = 'rotate(' + rotateAngle + 'deg)';
 
-    animation.startAnime(circle);
-    animation.startAnime(labelContainer);
-    animation.rotateAnime(circle);
-    animation.rotateAnime(labelContainer);
+    animation.startAnime(circle, labelContainer);
+    animation.rotateAnime(circle, labelContainer);
   };
 
   // ルーレットを停止する関数を定義
@@ -87,8 +88,7 @@ export const moveRoulette = function () {
     // キーフレームの更新
     animation.keyframes[1].transform = 'rotate(' + finishAngle + 'deg)';
 
-    animation.stopAnime(circle);
-    animation.stopAnime(labelContainer);
+    animation.stopAnime(circle, labelContainer);
   };
 
   startButton.onclick = function () {
