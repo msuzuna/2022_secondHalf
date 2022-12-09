@@ -13,12 +13,6 @@ export const setRoulette = () => {
     return outArray; // ラベルの配列を返す
   };
 
-  // textAreaの個数を返す関数を定義
-  const countInputItem = function () {
-    let count = setInputItem().length;
-    return count; // ラベルの配列個数を返す
-  };
-
   // ラベルアイテムの個数を返す関数を定義
   const countLabelItem = function () {
     const countLabelItem = labelContainer.childElementCount;
@@ -168,7 +162,7 @@ export const setRoulette = () => {
 
   // テキストエリアが更新されたら
   inputBox.addEventListener('keyup', function (e) {
-    const inputItemNum = countInputItem();
+    const inputItemNum = setInputItem().length;
 
     // EnterもしくはDeleteが押されたら ※deleteが効かない
     if (e.key === 'Enter' || e.key === 'Delete') {
