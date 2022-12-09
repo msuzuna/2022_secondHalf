@@ -39,24 +39,6 @@
     font-weight: bold;
     text-align: right;
     white-space: nowrap;
-
-    &:first-of-type {
-      top: -110px;
-      left: 153px;
-      transform: rotate(-30deg);
-    }
-
-    &:nth-of-type(2) {
-      top: 190px;
-      left: -21px;
-      transform: rotate(90deg);
-    }
-
-    &:last-of-type {
-      top: -110px;
-      left: -193px;
-      transform: rotate(-150deg);
-    }
   }
 
   &__pin {

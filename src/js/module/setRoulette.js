@@ -164,7 +164,9 @@ export const setRoulette = () => {
   window.addEventListener('load', function () {
     const inputItemNum = setInputItem().length;
     for (let i = 0; i < inputItemNum; i++) {
+      const angle = calcAngle(inputItemNum); // 角度の計算
       setLabel(inputItemNum, i, setInputItem()[i]); // ラベルアイテムの更新
+      setLabelPosition(i, angle);
     }
   });
 
