@@ -8,16 +8,7 @@ export const setRoulette = () => {
   const setInputItem = function () {
     const text = inputBox.value.replace(/\r\n|\r/g, '\n'); //改行文字を\nに統一
     const lines = text.split('\n'); //改行ごとに配列に格納
-    let outArray = []; // returnするArray
-
-    for (let i = 0; i < lines.length; i++) {
-      // 空欄行がある場合は
-      if (lines[i] == '') {
-        continue; // 何もしない
-      }
-
-      outArray.push(lines[i]); // returnするArrayに追加
-    }
+    const outArray = lines.filter(Boolean); // returnするArray
 
     return outArray; // ラベルの配列を返す
   };
