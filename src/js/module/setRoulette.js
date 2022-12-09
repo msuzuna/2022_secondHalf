@@ -8,24 +8,9 @@ export const setRoulette = () => {
   const setInputItem = function () {
     const text = inputBox.value.replace(/\r\n|\r/g, '\n'); //改行文字を\nに統一
     const lines = text.split('\n'); //改行ごとに配列に格納
-    let outArray = []; // returnするArray
-
-    for (let i = 0; i < lines.length; i++) {
-      // 空欄行がある場合は
-      if (lines[i] == '') {
-        continue; // 何もしない
-      }
-
-      outArray.push(lines[i]); // returnするArrayに追加
-    }
+    const outArray = lines.filter(Boolean); // returnするArray
 
     return outArray; // ラベルの配列を返す
-  };
-
-  // textAreaの個数を返す関数を定義
-  const countInputItem = function () {
-    let count = setInputItem().length;
-    return count; // ラベルの配列個数を返す
   };
 
   // ラベルアイテムの個数を返す関数を定義
@@ -98,7 +83,7 @@ export const setRoulette = () => {
   const setLabelPosition = function (num, angle) {
     const itemPositionAngle = angle / 2 + angle * num;
     const radian = setLabelItemAngle(itemPositionAngle) * (Math.PI / 180);
-    const circle_r = 200;
+    const circle_r = 140;
     const rotateAngle = setLabelRotateAngle(itemPositionAngle);
     let x = Math.cos(radian) * circle_r;
     let y = Math.sin(radian) * circle_r;
@@ -113,7 +98,7 @@ export const setRoulette = () => {
       y = -y;
     }
 
-    labelContainer.children[num].style.left = x - 20 + 'px';
+    labelContainer.children[num].style.left = x - 100 + 'px';
     labelContainer.children[num].style.top = y - 10 + 'px';
     labelContainer.children[num].style.transform =
       'rotate(' + rotateAngle + 'deg)';
@@ -145,7 +130,7 @@ export const setRoulette = () => {
   };
 
   // 色を設定する文字列を返す関数
-  const setCssText = function (num, angle) {
+  const createCssText = function (num, angle) {
     let backgroundText = '';
     const lastNum = num - 1;
     const colorArray = setColorArray(num);
@@ -175,16 +160,26 @@ export const setRoulette = () => {
     return 'conic-gradient(' + backgroundText + ')'; // backgroundに設定する文字列を返す
   };
 
+  // ページが読み込まれたら
+  window.addEventListener('load', function () {
+    const inputItemNum = setInputItem().length;
+    for (let i = 0; i < inputItemNum; i++) {
+      const angle = calcAngle(inputItemNum); // 角度の計算
+      setLabel(inputItemNum, i, setInputItem()[i]); // ラベルアイテムの更新
+      setLabelPosition(i, angle);
+    }
+  });
+
   // テキストエリアが更新されたら
   inputBox.addEventListener('keyup', function (e) {
-    const inputItemNum = countInputItem();
+    const inputItemNum = setInputItem().length;
 
     // EnterもしくはDeleteが押されたら ※deleteが効かない
-    if (e.key === 'Enter' || e.key === 'Delete') {
+    if (e.key === 'Enter' || e.key === 'Delete' || e.key === 'Backspace') {
       // textAreaの配列個数分繰り返す
       for (let i = 0; i < inputItemNum; i++) {
         const angle = calcAngle(inputItemNum); // 角度の計算
-        const cssText = setCssText(inputItemNum, angle); // 色の文字列更新
+        const cssText = createCssText(inputItemNum, angle); // 色の文字列更新
         circle.style.background = cssText; // 背景色の更新
         setLabel(inputItemNum, i, setInputItem()[i]); // ラベルアイテムの更新
         setLabelPosition(i, angle);
