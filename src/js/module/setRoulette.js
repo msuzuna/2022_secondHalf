@@ -83,7 +83,7 @@ export const setRoulette = () => {
   const setLabelPosition = function (num, angle) {
     const itemPositionAngle = angle / 2 + angle * num;
     const radian = setLabelItemAngle(itemPositionAngle) * (Math.PI / 180);
-    const circle_r = 200;
+    const circle_r = 140;
     const rotateAngle = setLabelRotateAngle(itemPositionAngle);
     let x = Math.cos(radian) * circle_r;
     let y = Math.sin(radian) * circle_r;
@@ -98,7 +98,7 @@ export const setRoulette = () => {
       y = -y;
     }
 
-    labelContainer.children[num].style.left = x - 20 + 'px';
+    labelContainer.children[num].style.left = x - 100 + 'px';
     labelContainer.children[num].style.top = y - 10 + 'px';
     labelContainer.children[num].style.transform =
       'rotate(' + rotateAngle + 'deg)';
