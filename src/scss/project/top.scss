@@ -1,0 +1,28 @@
+@charset 'utf-8';
+
+.top {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__input {
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+
+  &__button {
+    border: 1px solid black;
+    border-radius: 3px;
+
+    &:disabled {
+      color: gray;
+    }
+  }
+}
