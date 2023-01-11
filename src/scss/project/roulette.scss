@@ -1,0 +1,74 @@
+@charset 'utf-8';
+
+.rouletteContainer {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.roulette {
+  position: relative;
+
+  &__image {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background: conic-gradient(
+      #ec9376 0deg 120deg,
+      #ecbe75 120deg 240deg,
+      #e3e986 240deg 360deg
+    );
+    border-radius: 50%;
+  }
+
+  &__labelContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__label {
+    position: absolute;
+    display: block;
+    width: 200px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  &__pin {
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 50%));
+    border: solid transparent;
+    border-width: 10px 40px;
+    border-right-color: #0081b8;
+    transform: translateY(-50%);
+  }
+}
+
+.inputArea {
+  &__inputBox {
+    padding: 5px;
+    text-align: start;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  &__buttonArea {
+    margin-top: 40px;
+  }
+
+  &__button {
+    padding: 4px;
+    margin: 0 4px;
+    border: 1px solid #333;
+    border-radius: 4px;
+  }
+}
